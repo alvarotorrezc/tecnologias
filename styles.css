@@ -8,7 +8,6 @@ color: #222;
 }
 header, main, footer {
 padding: 1rem;
-max-width: 800px;
 margin: auto;
 }
 nav ul {
@@ -42,3 +41,256 @@ top: 0;
 @media (max-width:600px){
 nav ul{flex-direction:column;}
 }
+
+
+
+/* ===== ESTILOS FABIO MELGAREJO blog.html===== */
+.megasalud-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.megasalud-btn {
+    display: inline-block;
+    background-color: #04C4DC;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.megasalud-btn:hover {
+    background-color: #55DBE7;
+}
+
+.megasalud-section-title, .megasalud-section-title1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+
+.megasalud-section-title h2 {
+    font-size: 2.2rem;
+    color: #456595;
+    margin-bottom: 15px;
+}
+
+.megasalud-section-title p {
+    color: #456595;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.megasalud-section-title1 h2 {
+    font-size: 2.2rem;
+    color: #D3E6EE;
+    margin-bottom: 15px;
+}
+
+.megasalud-section-title1 p {
+    color: #fdfdfd;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+
+.megasalud-header {
+    background-color: #456595;
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.megasalud-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.megasalud-logo {
+    display: flex;
+    align-items: center;
+}
+
+.megasalud-logo h1 {
+    font-size: 1.8rem;
+    margin-left: 10px;
+}
+
+.megasalud-logo-icon {
+    font-size: 2rem;
+}
+
+.megasalud-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.megasalud-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.megasalud-nav ul li a:hover {
+    color: #cfe2ff;
+}
+
+.megasalud-nav ul li a.active {
+    color: #05CCDC;
+    font-weight: bold;
+}
+
+
+.megasalud-hero {
+    background: linear-gradient(rgba(26, 115, 232, 0.8), rgba(26, 115, 232, 0.9));
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.megasalud-hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.megasalud-hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+
+.megasalud-testimonials {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.megasalud-testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.megasalud-testimonial-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.megasalud-testimonial-text {
+    font-style: italic;
+    margin-bottom: 20px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.megasalud-testimonial-author {
+    display: flex;
+    align-items: center;
+}
+
+.megasalud-author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #1a73e8;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.megasalud-contact {
+    background-color: #1a73e8;
+    color: white;
+    padding: 80px 0;
+}
+
+.megasalud-contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.megasalud-contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.megasalud-contact-info p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.megasalud-contact-icon {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.megasalud-footer {
+    background-color: #0d47a1;
+    color: white;
+    padding: 40px 0 20px;
+}
+
+.megasalud-footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.megasalud-footer-logo h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.megasalud-footer-links h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.megasalud-footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.megasalud-footer-links ul li {
+    margin-bottom: 8px;
+}
+
+.megasalud-footer-links ul li a {
+    color: #cfe2ff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.megasalud-footer-links ul li a:hover {
+    color: white;
+}
+
+.megasalud-copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.9rem;
+    color: #cfe2ff;
+}
+/* =====FIN ESTILOS FABIO MELGAREJO blog.html===== */
