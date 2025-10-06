@@ -1,12 +1,166 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Blog - MegaSalud</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Este es mi aporte</h1>
-    <h1>Nombre: Fabio Melgarejo Cardozo</h1>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <header class="megasalud-header">
+        <div class="megasalud-container">
+            <div class="megasalud-header-content">
+                <div class="megasalud-logo">
+                    <div class="megasalud-logo-icon"></div>
+                    <h1>✚ MegaSalud</h1>
+                </div>
+                <nav class="megasalud-nav">
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="acerca.html">Nosotros</a></li>
+                        <li><a href="blog.html" class="active">Blog</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="megasalud-hero">
+            <div class="megasalud-container">
+                <h2>Experiencias de Nuestros Pacientes</h2>
+                <p>La satisfacción de nuestros pacientes es nuestra mayor recompensa. Conoce sus experiencias.</p>
+            </div>
+        </section>
+
+        <section class="megasalud-testimonials">
+            <div class="megasalud-container">
+                <div class="megasalud-section-title">
+                    <h2>Lo que dicen nuestros pacientes</h2>
+                    <p>Más de 10,000 pacientes confían en nosotros cada año</p>
+                </div>
+                <div class="megasalud-testimonials-grid">
+                    <div class="megasalud-testimonial-card">
+                        <div class="megasalud-testimonial-text">
+                            "Excelente atención en el área de ginecología. La doctora fue muy profesional y resolvió todas mis dudas. Las instalaciones son modernas y limpias. Definitivamente recomiendo MegaSalud."
+                        </div>
+                        <div class="megasalud-testimonial-author">
+                            <div class="megasalud-author-avatar">MG</div>
+                            <div>
+                                <strong>María González</strong>
+                                <p>Paciente de Ginecología</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="megasalud-testimonial-card">
+                        <div class="megasalud-testimonial-text">
+                            "Me realizaron unos estudios de laboratorio y rayos X. Los resultados fueron entregados rápidamente y con una explicación clara. El personal muy amable y profesional. Muy recomendable."
+                        </div>
+                        <div class="megasalud-testimonial-author">
+                            <div class="megasalud-author-avatar">CR</div>
+                            <div>
+                                <strong>Carlos Rodríguez</strong>
+                                <p>Paciente de Laboratorio y Rayos X</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="megasalud-testimonial-card">
+                        <div class="megasalud-testimonial-text">
+                            "La ecografía que me realizaron fue muy detallada. El equipo es moderno y el técnico muy amable. Me sentí en confianza durante todo el procedimiento. Volveré para mis próximos controles."
+                        </div>
+                        <div class="megasalud-testimonial-author">
+                            <div class="megasalud-author-avatar">AP</div>
+                            <div>
+                                <strong>Ana Pérez</strong>
+                                <p>Paciente de Ecografía</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="megasalud-testimonial-card">
+                        <div class="megasalud-testimonial-text">
+                            "Llevo a mi familia completa a MegaSalud. La atención es siempre excelente, los tiempos de espera son razonables y los precios justos. Un centro médico de confianza."
+                        </div>
+                        <div class="megasalud-testimonial-author">
+                            <div class="megasalud-author-avatar">JM</div>
+                            <div>
+                                <strong>José Mendoza</strong>
+                                <p>Paciente frecuente</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="megasalud-testimonial-card">
+                        <div class="megasalud-testimonial-text">
+                            "Durante mi embarazo recibí atención excepcional. Las ecografías fueron claras y el seguimiento muy profesional. Mi bebé nació saludable gracias a su cuidado. ¡Gracias MegaSalud!"
+                        </div>
+                        <div class="megasalud-testimonial-author">
+                            <div class="megasalud-author-avatar">LC</div>
+                            <div>
+                                <strong>Laura Castro</strong>
+                                <p>Paciente obstétrica</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="megasalud-testimonial-card">
+                        <div class="megasalud-testimonial-text">
+                            "Necesitaba unos estudios urgentes y me atendieron de inmediato. El proceso fue rápido, eficiente y el diagnóstico preciso. Muy agradecido con el personal de MegaSalud."
+                        </div>
+                        <div class="megasalud-testimonial-author">
+                            <div class="megasalud-author-avatar">RG</div>
+                            <div>
+                                <strong>Roberto Guzmán</strong>
+                                <p>Paciente de urgencias</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="megasalud-contact" style="padding: 60px 0;">
+            <div class="megasalud-container">
+                <div class="megasalud-section-title1">
+                    <h2>¿Listo para experimentar nuestra atención?</h2>
+                    <p>Únete a nuestros pacientes satisfechos y agenda tu cita hoy mismo.</p>
+                    <a href="contacto.html" class="megasalud-btn" style="margin-top: 20px;">Agendar Cita</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="megasalud-footer">
+        <div class="megasalud-container">
+            <div class="megasalud-footer-content">
+                <div class="megasalud-footer-logo">
+                    <h2>✚ MegaSalud</h2>
+                    <p>Centro Médico Integral</p>
+                </div>
+                <div class="megasalud-footer-links">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="megasalud-footer-links">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="servicios.html#ginecologia">Ginecología</a></li>
+                        <li><a href="servicios.html#ecografia">Ecografía</a></li>
+                        <li><a href="servicios.html#laboratorio">Laboratorio</a></li>
+                        <li><a href="servicios.html#rayosx">Rayos X</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="megasalud-copyright">
+                <p>&copy; 2025 MegaSalud. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

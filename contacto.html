@@ -1,12 +1,363 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contacto — Tu Empresa</title>
+  <meta name="description" content="Página de contacto — envíanos tus consultas" />
+
+  <!-- Estilos sencillos y responsive -->
+  <style>
+    :root{
+      --bg: #f7f9fb;
+      --card: #ffffff;
+      --primary: #2463eb;
+      --muted: #6b7280;
+      --accent: #10b981;
+      --danger: #ef4444;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#f7f9fb 0%, #eef4ff 100%);
+      color:#0f172a;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px;
+    }
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:28px;
+    }
+
+    header h1{
+      margin:0 0 6px;
+      font-size:28px;
+      letter-spacing:-0.02em;
+    }
+    header p{margin:0;color:var(--muted)}
+
+    .card{
+      background:var(--card);
+      border-radius:12px;
+      box-shadow:0 6px 20px rgba(16,24,40,0.06);
+      padding:22px;
+    }
+
+    /* Layout: form left, info right on wide screens */
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:20px;
+    }
+    @media(min-width:880px){
+      .grid{grid-template-columns: 1fr 380px;}
+    }
+
+    form .row{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+    }
+    @media(min-width:700px){
+      form .two{grid-template-columns:repeat(2,1fr);}
+    }
+
+    label{
+      display:block;
+      font-size:13px;
+      color:#0f172a;
+      margin-bottom:6px;
+      font-weight:600;
+    }
+    input[type="text"], input[type="email"], input[type="tel"], textarea, select{
+      width:100%;
+      padding:10px 12px;
+      border-radius:8px;
+      border:1px solid #e6eef8;
+      background:#fbfdff;
+      font-size:14px;
+      outline:none;
+    }
+    textarea{min-height:120px;resize:vertical;padding-top:10px}
+    .muted{color:var(--muted);font-size:14px}
+
+    .actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      margin-top:10px;
+    }
+    button{
+      background:var(--primary);
+      color:white;
+      border:0;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:600;
+      cursor:pointer;
+    }
+    button.secondary{
+      background:transparent;
+      color:var(--primary);
+      border:1px solid rgba(36,99,235,0.12);
+    }
+    .note{font-size:13px;color:var(--muted)}
+
+    /* Info column */
+    .info h3{margin:0 0 8px}
+    .contact-item{display:flex;gap:12px;align-items:flex-start;margin:10px 0}
+    .contact-item strong{display:block}
+    .socials{display:flex;gap:8px;margin-top:8px}
+    .chip{padding:6px 10px;border-radius:999px;border:1px solid #e6eef8;font-size:13px}
+
+    .map{
+      width:100%;
+      height:220px;
+      border-radius:10px;
+      overflow:hidden;
+      border:1px solid #e6eef8;
+      background:#eef6ff;
+    }
+
+    .error{color:var(--danger);font-size:13px;margin-top:6px}
+    .success{color:var(--accent);font-size:14px;margin-top:6px;font-weight:600}
+  </style>
 </head>
 <body>
-    <h1>Este es mi aporte</h1>
-    <h1>Nombre: Angel Gabriel Mamani Sullcani</h1>
+  <main class="container">
+    <header>
+      <h1>Contacto</h1>
+      <p>¿Tienes alguna duda o proyecto? Escríbenos y te responderemos a la brevedad.</p>
+    </header>
+
+    <section class="grid">
+      <!-- FORM -->
+      <div class="card" aria-labelledby="contact-form-title">
+        <h2 id="contact-form-title" style="margin-top:0;margin-bottom:8px;font-size:18px">Envíanos un mensaje</h2>
+        <p class="muted" style="margin-top:0;margin-bottom:18px">Completa el formulario y te contestaremos dentro de 1-2 días hábiles.</p>
+
+        <form id="contactForm" novalidate>
+          <!-- CAMBIAR: action y method según tu backend -->
+          <!-- <form id="contactForm" action="/api/contact" method="POST"> -->
+          <!-- Campo honeypot (no visible para humanos) -->
+          <input type="text" name="company" id="hp_company" style="position:absolute;left:-9999px;top:auto; width:1px; height:1px; overflow:hidden;" tabindex="-1" autocomplete="off" />
+
+          <div class="row two" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div>
+              <label for="name">Nombre <span aria-hidden="true" style="color:var(--danger)">*</span></label>
+              <input id="name" name="name" type="text" required placeholder="Tu nombre completo" />
+              <div class="error" id="err-name" aria-live="polite" style="display:none"></div>
+            </div>
+
+            <div>
+              <label for="email">Correo electrónico <span aria-hidden="true" style="color:var(--danger)">*</span></label>
+              <input id="email" name="email" type="email" required placeholder="tucorreo@ejemplo.com" />
+              <div class="error" id="err-email" aria-live="polite" style="display:none"></div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px;">
+            <label for="phone">Teléfono</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="+591 7 1234567" pattern="[\d+\s()-]{6,30}" />
+            <div class="muted" style="margin-top:6px">Opcional — formato internacional recomendado.</div>
+          </div>
+
+          <div style="margin-top:12px;">
+            <label for="subject">Asunto</label>
+            <input id="subject" name="subject" type="text" placeholder="Breve descripción del motivo" />
+          </div>
+
+          <div style="margin-top:12px;">
+            <label for="message">Mensaje <span aria-hidden="true" style="color:var(--danger)">*</span></label>
+            <textarea id="message" name="message" required placeholder="Escribe tu mensaje..."></textarea>
+            <div class="error" id="err-message" aria-live="polite" style="display:none"></div>
+          </div>
+
+          <div class="actions">
+            <button type="submit" id="submitBtn">Enviar mensaje</button>
+            <button type="button" class="secondary" id="resetBtn">Limpiar</button>
+            <div style="flex:1"></div>
+            <div class="note">Puedes adjuntar archivos vía email después de enviar el formulario.</div>
+          </div>
+
+          <div id="formMessage" role="status" aria-live="polite" style="margin-top:12px"></div>
+        </form>
+
+        <!-- Instrucciones backend (no visibles) -->
+        <!--
+          Recomendación:
+          - Endpoint: POST /api/contact
+          - Body: JSON { name, email, phone, subject, message }
+          - Validar honeypot 'company' -> si tiene contenido, descartar (spam)
+          - Enviar notificación por correo y guardar en DB
+          - Responder con JSON { ok: true, message: 'Enviado' }
+        -->
+      </div>
+
+      <!-- INFO / MAPA -->
+      <aside class="card info" aria-labelledby="contact-info-title">
+        <h3 id="contact-info-title">Nuestra ubicación</h3>
+
+        <div class="map" style="margin-bottom:12px">
+          <!-- Reemplaza src con tu embed de Google Maps, OpenStreetMap, etc. -->
+          <iframe
+            title="Mapa de ubicación"
+            loading="lazy"
+            style="border:0;width:100%;height:100%;"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d...">
+          </iframe>
+        </div>
+
+        <div class="contact-item">
+          <div>
+            <strong>Dirección</strong>
+            <div class="muted">Av. Principal 123, Ciudad, País</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div>
+            <strong>Teléfono</strong>
+            <div class="muted">+591 7 1234567</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div>
+            <strong>Correo</strong>
+            <div class="muted">contacto@tudominio.com</div>
+          </div>
+        </div>
+
+        <div style="margin-top:10px">
+          <strong>Síguenos</strong>
+          <div class="socials">
+            <a class="chip" href="#" aria-label="Facebook">Facebook</a>
+            <a class="chip" href="#" aria-label="Instagram">Instagram</a>
+            <a class="chip" href="#" aria-label="LinkedIn">LinkedIn</a>
+          </div>
+        </div>
+
+        <div style="margin-top:14px" class="muted">
+          Horario de atención:<br/>Lun - Vie, 9:00 - 18:00
+        </div>
+      </aside>
+    </section>
+
+    <footer style="text-align:center;margin-top:10px;color:var(--muted);font-size:13px">
+      © <span id="year"></span> Tu Empresa. Todos los derechos reservados.
+    </footer>
+  </main>
+
+  <!-- Script de validación y envío (fetch) -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const formMessage = document.getElementById('formMessage');
+
+    function showError(id, text){
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.style.display = 'block';
+      el.textContent = text;
+    }
+    function clearErrors(){
+      ['err-name','err-email','err-message'].forEach(id=>{
+        const el = document.getElementById(id);
+        if(el){ el.style.display = 'none'; el.textContent = ''; }
+      });
+      formMessage.textContent = '';
+      formMessage.className = '';
+    }
+
+    resetBtn.addEventListener('click', e=>{
+      form.reset();
+      clearErrors();
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearErrors();
+
+      // Validación simple
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+      const honeypot = form.company.value.trim();
+
+      let ok = true;
+      if(honeypot){ // spam detected
+        formMessage.textContent = 'Error: formulario inválido.';
+        formMessage.className = 'error';
+        return;
+      }
+      if(name.length < 2){ showError('err-name','Ingresa tu nombre'); ok = false; }
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if(!emailPattern.test(email)){ showError('err-email','Correo inválido'); ok = false; }
+      if(message.length < 6){ showError('err-message','Escribe un mensaje más detallado'); ok = false; }
+
+      if(!ok) return;
+
+      // Deshabilitar botón para evitar envíos múltiples
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+
+      // Cambia la URL si tienes un endpoint en tu servidor
+      const endpoint = '/api/contact'; // <-- actualizar a tu endpoint real
+      const payload = {
+        name, email,
+        phone: form.phone.value.trim(),
+        subject: form.subject.value.trim(),
+        message
+      };
+
+      try {
+        // Si no tienes backend, puedes descomentar el bloque "simulación" abajo
+        const resp = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if(!resp.ok){
+          // intenta leer JSON con mensaje de error
+          let text = 'Ocurrió un error al enviar. Intenta nuevamente.';
+          try{
+            const j = await resp.json();
+            if(j && j.message) text = j.message;
+          }catch(e){}
+          formMessage.textContent = text;
+          formMessage.className = 'error';
+        } else {
+          formMessage.textContent = 'Mensaje enviado correctamente. ¡Gracias!';
+          formMessage.className = 'success';
+          form.reset();
+        }
+      } catch(err){
+        // Si no tienes backend disponible, puedes usar la simulación local:
+        /*
+        await new Promise(r=>setTimeout(r,800));
+        formMessage.textContent = 'Simulación: mensaje preparado (no enviado).';
+        formMessage.className = 'success';
+        form.reset();
+        */
+        formMessage.textContent = 'No se pudo conectar con el servidor. Revisa la URL del endpoint.';
+        formMessage.className = 'error';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar mensaje';
+      }
+    });
+  </script>
 </body>
 </html>
+
